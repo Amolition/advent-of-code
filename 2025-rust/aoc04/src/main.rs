@@ -1,5 +1,8 @@
 use std::{env, fs};
 
+// Probably would be a lot easier using a library like ndarray
+// But tried to process my own 2D array here as nested vec/tuples
+
 fn part_a(grid: Vec<(usize, Vec<(usize, u8)>)>) -> u32 {
     grid.iter().fold(0, |acc1, el1| {
         let sub_rows = grid
@@ -31,6 +34,7 @@ fn part_b(grid: Vec<(usize, Vec<(usize, u8)>)>) -> u32 {
         RollPresent,
     }
     type Grid = Vec<(usize, Vec<(usize, CellStates)>)>;
+    // Convert grid to use CellStates enum
     let grid: Grid = grid
         .iter()
         .map(|i| {
@@ -95,6 +99,7 @@ fn part_b(grid: Vec<(usize, Vec<(usize, u8)>)>) -> u32 {
         next_grid
     }
 
+    // might be a nicer functional way to do this
     let mut changing = true;
     let mut last_count = 0;
     let mut last_grid = grid;
