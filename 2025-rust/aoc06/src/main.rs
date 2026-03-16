@@ -83,6 +83,7 @@ fn solver(cols: Vec<(Vec<u64>, Op)>) -> u64 {
         acc + val
     })
 }
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     let file = &args[1];
